@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from tinymce.models import HTMLField
+
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -16,7 +16,7 @@ class Profile(models.Model):
     profile_photo = CloudinaryField('image', default='media/default.jpg')
     bio = models.CharField(blank=True,default='I am a new user!', max_length = 200)
     name = models.CharField(blank=True, max_length=120)
-    contact = models.PositiveIntegerField(blank=True)
+    contact = models.PositiveIntegerField(blank=True,default='2547123456')
     
     def __str__(self):
         return f'{self.user.username} profile'
