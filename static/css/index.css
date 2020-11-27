@@ -1,16 +1,19 @@
-/*  */
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
 .logo{
-    width: 17.5rem;
+    width: 10.5rem;
 }
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgb(247, 247, 247);
+   
    }
 
-   .panel-form{
+.panel-form{
     padding-top: 5%;
   
 }
