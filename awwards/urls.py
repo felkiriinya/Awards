@@ -1,4 +1,4 @@
-"""awards URL Configuration
+"""awwards URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,18 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url,include
-from django.contrib.auth import views
-from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('',include('socialapp.urls')),
-    url('^accounts/register/',
-        RegistrationView.as_view(success_url='/accounts/login'),
-        name='django_registration_register'),
-    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
-    url(r'^logout/$',views.LogoutView.as_view(), {'next_page': 'settings.LOGOUT_REDIRECT_URL'}),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
+    path('admin/', admin.site.urls),
 ]
-
