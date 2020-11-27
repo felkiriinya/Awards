@@ -4,8 +4,6 @@
 
 ## Description
 
-
-![login](./static/images/login.png)
 ![landing](./static/images/landing.png)
 
 
@@ -40,6 +38,6 @@ Technologies used to develop this application:
 
 Should you be unable to access the website, have any recommendations and/or questions, feel free to email me:[felkiriinya@gmail.com](mailto:felkiriinya@gmail.com)
 
-## [License]()
+## [License](https://github.com/felkiriinya/Awards/blob/main/LICENSE)
 
 Copyright (c) 2020 [Felista Kiriinya](https://github.com/felkiriinya)
