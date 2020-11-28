@@ -26,14 +26,14 @@
 		</div>
 	</div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5" style="color: black;">
 	<h1 class="text-center" style="color: black;">PROJECTS</h1>
 	<hr style="width: 80px">
 	{% for project in posts %}
 	{% if project.user == user.profile.user %}
 	<div class="row mt-5 hvr-grow ">
 		<div class="col-md-3">
-			<img src="{{ project.image1.url }}" class="img-thumbnail" width="500">
+			<img src="{{ project.image.url }}" class="img-thumbnail" width="500">
 		</div>
 		<div class="col-md-9">
 			<p>Project Name: {{ project.sitename }}</p>

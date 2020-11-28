@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile,Project
+from .models import Profile,Project,Rating
 
 class UpdateUserForm(forms.ModelForm):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
@@ -23,3 +23,10 @@ class NewPostForm(forms.ModelForm):
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }        
+
+
+
+class ProjectRatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        exclude = ['project', 'pub_date', 'user']

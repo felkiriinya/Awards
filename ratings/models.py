@@ -58,11 +58,13 @@ class Profile(models.Model):
 
 class Project(models.Model):
     image = CloudinaryField('image')
-    sitename = models.CharField(max_length=50,null=True)
-    link = models.CharField(max_length=50, null=True)
+    sitename = models.CharField(max_length=50)
+    link = models.CharField(max_length=50)
     date_posted = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-
+    technologies = models.CharField(max_length=100)
+    categories = models.CharField(max_length=100)
+    desc = models.CharField(max_length=100)
     def __str__(self):
         return self.sitename
 

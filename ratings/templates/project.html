@@ -2,7 +2,7 @@
 {% load mathfilters %}
 {% block content %}
 <div class="container mt-5 border-left border-right project-font" style="color: black;">
-	<h1 class="text-center">{{ project.sitename }} by <span class="text-uppercase">{{ project.user }}</span></h1>
+	<h3 class="text-center" >{{ project.sitename }} by <span class="text-uppercase">{{ project.user }}</span></h3>
 	<hr style="width: 150px">
 	<div class="row mt-4">
 		<div class="col-md-6 border-right">
@@ -15,7 +15,7 @@
 				{{ project.categories }}
 				<h5 class="mt-3  font-weight-bold">Technologies</h5>
 				{{ project.technologies }}
-				<p class="text-muted mt-3"> Posted {{ project.post_date|timesince }} ago </p>
+				<p class="text-muted mt-3"> Posted {{ project.date_posted|timesince }} ago </p>
 			</div>
 			<div class="ml-5">
 				<h2 class="text-center font-weight-bold">IMAGES</h2>
@@ -65,7 +65,7 @@
 		<div class="col-md-6 text-center">
 			<h2 class="text-center mt-5 font-weight-bold">RATINGS</h2>
 			<hr style="width: 80px">
-			<a href="">
+			<a href="{% url 'review' project.id %}">
 				<button class="btn btn-lg btn-outline-info mt-3"> RATE</button>
 			</a>
 			{% if ratings %}

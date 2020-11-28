@@ -6,7 +6,7 @@ from .models import Project,Profile,Rating
 from django.db.models import Avg
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import UpdateUserForm,UpdateUserProfileForm,NewPostForm
+from .forms import UpdateUserForm,UpdateUserProfileForm,NewPostForm,ProjectRatingForm
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def landing(request):
@@ -20,27 +20,10 @@ def landing(request):
 
 
 @login_required(login_url='/accounts/login')
-def profile(request,profile_id):
-  
-    # images = request.user.profile.posts.all()
-    if request.method == "POST":
-        user_form = UpdateUserForm(request.POST, instance=request.user)
-        prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        if user_form.is_valid() and prof_form.is_valid():
-            user_form.save()
-            prof_form.save()
-            return HttpResponseRedirect(request.path_info)
-    else:
-        user_form = UpdateUserForm(instance=request.user)
-        prof_form = UpdateUserProfileForm(instance=request.user.profile)
-
-    params = {
-        # 'images' : images,   
-        'user_form': user_form,
-        'prof_form': prof_form,
-        
-    }
-    return render(request, 'awwards/profile.html', params)
+def profile(request):
+    posts = Project.objects.all().order_by('-date_posted')
+    
+    return render(request, 'awwards/profile.html', {'posts':posts})
 @login_required(login_url='/accounts/login/')
 def edit(request):
     
@@ -51,8 +34,8 @@ def edit(request):
         if user_form.is_valid() and prof_form.is_valid():
             user_form.save()
             prof_form.save()
-            # return redirect('profile')
-            return HttpResponseRedirect(request.path_info)
+            return redirect('profile')
+            # return HttpResponseRedirect(request.path_info)
     else:
         user_form = UpdateUserForm(instance=request.user)
         prof_form = UpdateUserProfileForm(instance=request.user.profile)
@@ -90,3 +73,20 @@ def single_project(request, c_id):
     return render(request, 'project.html',
                   {"project": current_project, "user": current_user, 'ratings': ratings, "design": design,
                    "content": content, "usability": usability})
+def review_rating(request, id):
+    current_user = request.user
+
+    current_project = Project.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ProjectRatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.project = current_project
+            rating.user = current_user
+            rating.save()
+            return redirect('project', id)
+    else:
+        form = ProjectRatingForm()
+
+    return render(request, 'rating.html', {'form': form, "project": current_project, "user": current_user})
