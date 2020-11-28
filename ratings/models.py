@@ -61,10 +61,15 @@ class Project(models.Model):
     sitename = models.CharField(max_length=50,null=True)
     link = models.CharField(max_length=50, null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
 
     def __str__(self):
         return self.sitename
+
+    @classmethod
+    def get_images(cls):
+        all_images = cls.objects.all()
+        return all_images     
 
     def save_project(self):
         self.save()
