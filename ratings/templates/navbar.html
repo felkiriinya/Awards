@@ -6,6 +6,8 @@
 	<button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon" style="color: white;"></span>
 	</button>
+	<a class="nav-link border border-warning" href="{% url 'new_post' %}"  style="border: blanchedalmond; margin-right: 2%;">Submit your site</a>
+	  
   
 	<div class="collapse navbar-collapse rest"  id="navbarSupportedContent" >
 	  <ul class="navbar-nav mr-auto">
@@ -37,12 +39,11 @@
 		  </li>
 		
 		
+		  
 	  </ul>
 	 
 		
-			<a class="nav-link border border-warning" href="{% url 'new_post' %}"  style="border: blanchedalmond; margin-right: 2%;">Submit your site</a>
-		  
-
+			
 	  
 	  
 	  <form class="form-inline my-2 my-lg-0 search" action="{% url 'search_results' %}" >

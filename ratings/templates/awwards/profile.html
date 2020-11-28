@@ -1,6 +1,6 @@
 {% extends 'awwards/base.html' %}
 {% block content %}
-<div class="container" style="background-color: #e6edee;">
+<div class="container" style="background-color: white;">
 	<span class="float-left container ml-5 mt-3">
 		
 	</span>
@@ -13,7 +13,7 @@
 			</div>
 			<h1 class="text-uppercase mt-3 font-weight-bold" style= "font-size: 15px;">{{ user.profile.user }}</h1>
 			<hr style="width: 100px; color: black;">
-			<a href="{{ user.email }}"  ><h4 class="text-body" >{{ user.email }}</h4></a>
+			<a href=""  ><h4 class="text-body" >{{ user.email }}</h4></a>
 			<div>
 				<h6 class="font-weight-bold mt-3" >{{ user.profile.bio }}</h6>
 			</div>
@@ -27,7 +27,7 @@
 	</div>
 </div>
 <div class="container mt-5" style="color: black;">
-	<h1 class="text-center" style="color: black;">PROJECTS</h1>
+	<h1 class="text-center" style="color: black; font-weight: bolder;">PROJECTS</h1>
 	<hr style="width: 80px">
 	{% for project in posts %}
 	{% if project.user == user.profile.user %}
@@ -41,7 +41,7 @@
 			<p>Technologies: {{ project.technologies }}</p>
 			<p>Categories: {{ project.categories }}</p>
 			<p class=""><a href="{{ project.link }}">
-				<button class="btn hvr-bubble-float-bottom">LINK</button>
+				<button class="btn hvr-bubble-float-bottom btn-warning">LINK</button>
 			</a></p>
 			<p class="text-muted float-right">{{ project.post_date }}</p>
 		</div>
