@@ -107,7 +107,7 @@ def review_rating(request, id):
     current_project = Project.objects.get(id=id)
 
     if request.method == 'POST':
-        form = ProjectRatingFor url(r'^api/merch/$', views.MerchList.as_view())m(request.POST)
+        form = ProjectRatingForm 
         if form.is_valid():
             rating = form.save(commit=False)
             rating.project = current_project
@@ -126,9 +126,9 @@ def search_results(request):
         
         message = f'{search_term}'
         
-        return render(request,'search.html',{"message":message,"projects":searched_projects})
+        return render(request,'search.html',{"message":message,"posts":searched_projects})
     
     else:
         message = "You haven't searched for any term"
-        return render(request,'search.html',{"message":message,"projects":searched_projects})
+        return render(request,'search.html',{"message":message,"posts":searched_projects})
     

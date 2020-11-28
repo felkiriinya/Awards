@@ -11,7 +11,7 @@ urlpatterns=[
     url(r'^new/post$', views.new_post, name='new_post'),
     url(r'^project/(\d+)$', views.single_project, name='project'),
     url(r'^rating/(\d+)$', views.review_rating, name="review"),
-    
+    url(r'^search/', views.search_results, name='search_results'),
     url(r'^api/merch/$', views.MerchList.as_view()),
     url(r'^api/merch1/$', views.MerchList2.as_view())
 

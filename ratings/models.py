@@ -81,9 +81,12 @@ class Project(models.Model):
 
     @classmethod
     def search_by_name(cls, search_term):
-        got_projects = Project.objects.filter(name__icontains=search_term)
+        got_projects = Project.objects.filter(sitename__icontains=search_term)
         return got_projects
-
+    # @classmethod
+    # def search_by_projects(cls,search_term):
+    #     projects = cls.objects.filter(title__icontains=search_term)
+    #     return projects 
 
 class Rating(models.Model):
     RATINGS = (

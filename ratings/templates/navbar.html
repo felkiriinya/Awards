@@ -8,12 +8,12 @@ example 3 - Navbar with brand left, links on center and right that collapse into
 				<a class="nav-link brand-size" href="#" style="color: white !important;"> <i
 								class="material-icons pr-3">menu</i><span class="d-flex float-right mt-1">MENU</span></a>
 			</li>
-			<li class="nav-item ml-4">
-				<a class="nav-link my-3" href="#" id="search" style="color: white !important;"><i
-								class="material-icons hvr-grow " >search</i></a>
-			</li>
-			<li class="nav-item" style="padding-top: 2%;">
-				<input class="my-4 form-control" type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for project.." name="projects">
+			<li>
+				<form class="form-inline md-form form-md active-pink active-pink-2 mt-2" action="{% url 'search_results' %}">
+					<i class="fas fa-search" aria-hidden="true"></i>
+					<input class="form-control form-control-md ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
+					name="projects">
+				</form>
 			</li>
 		</ul>
 	</div>
