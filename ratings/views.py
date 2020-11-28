@@ -7,6 +7,19 @@ from django.db.models import Avg
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import UpdateUserForm,UpdateUserProfileForm,NewPostForm,ProjectRatingForm
+
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .serializer import MerchSerializer
+
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = Profile.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
+
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def landing(request):

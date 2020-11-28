@@ -11,6 +11,9 @@ urlpatterns=[
     url(r'^new/post$', views.new_post, name='new_post'),
     url(r'^project/(\d+)$', views.single_project, name='project'),
     url(r'^rating/(\d+)$', views.review_rating, name="review"),
+    
+    url(r'^api/merch/$', views.MerchList.as_view())
+
     # url(r'^user_profile/(?P<username>\w+)', views.user_profile, name='user_profile'),
     # # url('^$',views.front, name='front'),
     # url(r'^new/post/$', views.new_post, name='new-post'),
