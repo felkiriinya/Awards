@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http  import HttpResponse,Http404
-from .models import Project,Profile
+from .models import Project,Profile,Rating
+from django.db.models import Avg
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import UpdateUserForm,UpdateUserProfileForm,NewPostForm
@@ -79,14 +80,13 @@ def new_post(request):
     return render(request, 'newpost.html', {"form": form})
 
 def single_project(request, c_id):
-    # current_user = request.user
-    # current_project = Post.objects.get(id=c_id)
-    # ratings = Rating.objects.filter(post_id=c_id)
-    # usability = Rating.objects.filter(post_id=c_id).aggregate(Avg('usability_rating'))
-    # content = Rating.objects.filter(post_id=c_id).aggregate(Avg('content_rating'))
-    # design = Rating.objects.filter(post_id=c_id).aggregate(Avg('design_rating'))
+    current_user = request.user
+    current_project = Project.objects.get(id=c_id)
+    ratings = Rating.objects.filter(post_id=c_id)
+    usability = Rating.objects.filter(post_id=c_id).aggregate(Avg('usability_rating'))
+    content = Rating.objects.filter(post_id=c_id).aggregate(Avg('content_rating'))
+    design = Rating.objects.filter(post_id=c_id).aggregate(Avg('design_rating'))
 
-    # return render(request, 'project.html',
-    #               {"project": current_project, "user": current_user, 'ratings': ratings, "design": design,
-    #                "content": content, "usability": usability})
-    pass
+    return render(request, 'project.html',
+                  {"project": current_project, "user": current_user, 'ratings': ratings, "design": design,
+                   "content": content, "usability": usability})
