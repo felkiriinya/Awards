@@ -129,10 +129,4 @@ h3,h1{
       font-size: 14px;
   }
   
-  .img-carousel:hover
-  {
-  opacity:1;
-  background-color: Black;
-  z-index:10;
-  transition: 1s;
-  }
+  

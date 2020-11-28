@@ -107,7 +107,7 @@ def review_rating(request, id):
     current_project = Project.objects.get(id=id)
 
     if request.method == 'POST':
-        form = ProjectRatingForm 
+        form = ProjectRatingForm(request.POST)
         if form.is_valid():
             rating = form.save(commit=False)
             rating.project = current_project

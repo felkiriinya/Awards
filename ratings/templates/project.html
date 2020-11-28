@@ -32,8 +32,8 @@
 				<button class="btn" style="background-color: black; color: white; width: 50%;"> RATE</button>
 			</a>
 			{% if ratings %}
-			<div class="table-responsive">
-				<table class="table table-hover table-dark mt-5">
+			<div class="table-responsive" style="padding-top: 5%;" >
+				<table class="table table-hover " style="background-color: black; color: white;"> 
 					<thead>
 					<tr>
 						<th scope="col"><i class="feather-16 ml-5" data-feather="user"></i></th>
@@ -46,9 +46,8 @@
 					<tbody>
 					{% for rating in ratings %}
 					<tr>
-						<th scope="row" class="toggle-review"><img class="img-responsive rounded-circle"
-						                                           src="{{rating.user.profile.image.url}}" height="30"
-						                                           width="30"><b class="ml-2">{{rating.user.username}}</b>
+						<th scope="row" class="toggle-review">
+						                                    <b class="ml-2">{{rating.user.username}}</b>
 						</th>
 						<td>{{rating.usability_rating}}</td>
 						<td>{{rating.design_rating}}</td>
@@ -56,8 +55,8 @@
 						<td>{{ rating.content_rating | add:rating.design_rating |add:rating.usability_rating|div:3|truncatechars:6}}
 						</td>
 					</tr>
-					<tr class="bg-dark">
-						<th scope="row" class="bg-dark"><span class="text-danger">Comment: </span></th>
+					<tr class="" style="background-color: black;">
+						<th scope="row" class=""><span class="" style="color: white;">Comment: </span></th>
 						<td colspan="4">{{ rating.review }}</td>
 					</tr>
 					{% endfor %}
