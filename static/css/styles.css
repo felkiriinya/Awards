@@ -7,6 +7,7 @@ html {
   transition: 1s;
   overflow-x: hidden;
   overflow-y: auto;
+  color: #ddd !important;
   
   }
   
@@ -55,13 +56,13 @@ html {
   
   a, u {
       text-decoration: none !important;
+      /* color: #ddd !important; */
   }
   
   .navbar{
       margin: 0;
       padding: 0;
-      background-color: #f0d121;
-      
+      background-color: #118aa0;
   }
   .brand-size{
       font-size: 14px;
@@ -84,11 +85,12 @@ html {
   }
   .submit-color{
   transition: 1s;
-      background-color: #f0d121;
+      background-color: #118aa0;
   }
   .submit-color:hover{
       transition: 1s;
-      background-color: #f0d121;
+      background-color:#118aa0;
+      color: black !important;
   }
   
   .custom-pad{
@@ -114,6 +116,7 @@ html {
   
   .dropbtn:hover{
       cursor:pointer;
+      color: black !important;
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -240,7 +243,7 @@ html {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #f0d121; /* Black*/
+    background-color: #118aa0; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 1s; /* 0.5 second transition effect to slide in the sidenav */
@@ -251,7 +254,7 @@ html {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 18px;
-    color: black;
+    color: rgb(248, 247, 247);
     display: block;
     transition: 0.4s;
     font-weight: 600;

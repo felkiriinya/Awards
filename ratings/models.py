@@ -16,7 +16,7 @@ class Profile(models.Model):
     profile_photo = CloudinaryField('image', default='media/default.jpg')
     bio = models.CharField(blank=True,default='I am a new user!', max_length = 200)
     name = models.CharField(blank=True, max_length=120)
-    contact = models.PositiveIntegerField(blank=True,default='2547123456')
+    updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return f'{self.user.username} profile'
@@ -55,3 +55,10 @@ class Profile(models.Model):
         self.photo = new_image 
         self.save()              
     
+
+class Project(models.Model):
+    image = CloudinaryField('image')
+    image_name = models.CharField(max_length=40)
+
+    date_posted = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
