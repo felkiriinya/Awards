@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    
+}
+
+a
+{
+    font-size: 15px;
+    color: rgb(240, 239, 239) !important;
+}
+.dropdown-menu{
+    color:black;
+}
+.navbar{
+    border-radius: 0%;
+}

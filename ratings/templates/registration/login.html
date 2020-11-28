@@ -11,11 +11,11 @@
       {% if form.errors %}
         <p> Password or Username is incorrect </p>
       {% endif %}
-      <div class="panel panel-default">
+      <div class="panel panel-default"style="background-color: white !important;" >
 
-        <div class="panel-heading" style="background-color: white;">
-          <h3 class="text-center" style="color: #118aa0;">
-              <img src="https://k2imagesblob.blob.core.windows.net/content/media/images/new-product-images/cups/AMC303-Blue-Star-Trophy-Cup-on-Marble-Base.png" class="logo" alt="">
+        <div class="panel-heading" style="background-color: white !important;">
+          <h3 class="text-center" style="color: rgb(201, 157, 12);">
+              <img src="../../static/images/trop.jpg" class="logo" alt="">
               Awwards
           </h3>
         </div>
@@ -25,8 +25,8 @@
             {% csrf_token %}
             {% bootstrap_form form%}
 
-            <div class="form-group" style=" width: 100%;">
-                <input type="submit" class="btn" value="Login"  style="align-items: center; width: 100%; background-color: #118aa0; color: white;" >
+            <div class="form-group" style=" width: 100%; padding-top: 3%;">
+                <input type="submit" class="btn" value="Login"  style="align-items: center; width: 100%; background-color:rgb(201, 157, 12);; color: white;" >
             </div>
               
             
@@ -34,10 +34,10 @@
             <input type="hidden" name="next" value="{{next}}">
 
           </form>
-          <div class="sign-up">
+          <div class="sign-up" style="padding-left: 28%; padding-top: 3%;">
              <span class="p">Don't have an account?</span>
                
-             <a href="/accounts/register/" class="ml-2" style="color:#118aa0;">Sign Up</a>
+             <a href="/accounts/register/" class="ml-2" style="color:rgb(201, 157, 12);">Sign Up</a>
         </div>
 
         </div>

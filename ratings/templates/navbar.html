@@ -1,69 +1,53 @@
-<!--
-example 3 - Navbar with brand left, links on center and right that collapse into the vert mobile menu
--->
-<nav class="navbar navbar-light navbar-expand-md justify-content-center border-bottom sticky-top">
-	<div class="navbar-brand d-flex w-50 mr-auto brand-size ml-4  font-weight-bold m-0 p-0">
-		<ul class="navbar-nav">
-			<li class="nav-item active border-right pr-3 py-3" onclick="openNav()">
-				<a class="nav-link brand-size" href="#" style="color: white !important;"> <i
-								class="material-icons pr-3">menu</i><span class="d-flex float-right mt-1">MENU</span></a>
-			</li>
-			<li>
-				<form class="form-inline md-form form-md active-pink active-pink-2 mt-2" action="{% url 'search_results' %}">
-					<i class="fas fa-search" aria-hidden="true"></i>
-					<input class="form-control form-control-md ml-3 w-75" type="text" placeholder="Search" aria-label="Search"
-					name="projects">
-				</form>
-			</li>
-		</ul>
-	</div>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
-		<span class="navbar-toggler-icon"></span>
+
+
+ <nav class="navbar  navbar-expand-lg navbar-dark"  style="background-color: rgb(17, 16, 16);">
+	 <img src="https://www.flaticon.com/svg/static/icons/svg/419/419952.svg" alt="" style="height: 40px;">
+	<a class="navbar-brand text-warning"  href="/" style="padding-top: 1%; font-size: 20px;" >Awwards</a>
+	<button class="navbar-toggler" style="color: white;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon" style="color: white;"></span>
 	</button>
-	<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-		<ul class="navbar-nav w-100 justify-content-center">
-			<li class="nav-item">
-				<p class="nav-link nav-title text-dark my-2 hvr-grow " ><a class="text-dark" href="" style="color: white !important;">AWW
-					&middot; A
-					&middot; RDS</a></p>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+  
+	<div class="collapse navbar-collapse rest"  id="navbarSupportedContent" >
+	  <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+		  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+		</li>
+		
+		<li class="nav-item dropdown">
+		  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{ user.profile.user }}
+		  </a>
+		  <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+			<a class="dropdown-item" href="{% url 'profile' %}" style="color: black !important;">Profile</a>
+			<!-- <a class="dropdown-item" href="#" style="color: black !important;">Another action</a> -->
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="/logout"style="color: black !important;">Logout</a>
+		  </div>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  API
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+			  <a class="dropdown-item" href="/api/merch1" style="color: black !important;">Projects API</a>
+			  <a class="dropdown-item" href="/api/merch" style="color: black !important;">Profiles API</a>
+			  <div class="dropdown-divider"></div>
+			  
+			</div>
+		  </li>
+		
+		
+	  </ul>
+	 
+		
+			<a class="nav-link border border-warning" href="{% url 'new_post' %}"  style="border: blanchedalmond; margin-right: 2%;">Submit your site</a>
+		  
 
-			{% if user.is_authenticated %}
-			
-
-			<li class="nav-item">
-				<div class="dropdown my-2">
-					<button class="dropbtn d-flex">
-						<span class="ml-2 hvr-grow " style="padding-left: 5%; padding-bottom: 1%; color: white !important;"><a class="nav-link nav-font text-dark font-weight-bold py-3 my-3 text-uppercase hvr-grow "
-              href="" > <span style="color: white !important;"> {{ user.profile.user }}</span> </a></span>
-						<span class="mr-4 ml-2 mt-4 hvr-grow"><i class=" feather-18" data-feather="align-right"></i></span>
-					</button>
-					<div class="dropdown-content font-weight-bold log">
-						<a href="{% url 'profile' %}" class="hvr-bubble-float-bottom p-3 mt-4 border-bottom">Profile</a>
-						<a href="#" class="hvr-bubble-float-bottom p-3 mt-3 border-bottom">Activity</a>
-						<a href="/logout"
-						   class="hvr-bubble-float-bottom p-3 mt-3 border-bottom text-muted d-flex log text-danger"><span
-										class="mr-4 pr-3">Log
-							Out </span><i
-										class="feather-16 ml-5"
-										data-feather="log-out"></i></a>
-					</div>
-				</div>
-			</li>
-			{% else %}
-			<li class="nav-item">
-				<a class="nav-link nav-font text-dark font-weight-bold p-3 my-3" href="#" data-toggle="modal"
-				   data-target="#exampleModalCenter">REGISTER/ LOG IN</a>
-			</li>
-			{% endif %}
-
-			<li class="nav-item submit-color">
-				<a class="nav-link nav-font font-weight-bold py-3 my-3 px-5" href="{% url 'new_post' %}">SUBMIT YOUR
-					SITE !</a>
-			</li>
-		</ul>
+	  
+	  
+	  <form class="form-inline my-2 my-lg-0 search" action="{% url 'search_results' %}" >
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size: 15px;" name="projects">
+		<button class="btn btn-outline-warning my-2 my-sm-0" type="submit" style="font-size: 15px;">Search</button>
+	  </form>
 	</div>
-</nav>
-
+  </nav>
