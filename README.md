@@ -8,7 +8,7 @@
 
 
 ## Live link
-Visit the application on .
+Visit the application on https://fel-awards.herokuapp.com/.
 
 ## Figma Link
 This is the [figma]() link to my design.
