@@ -13,7 +13,7 @@ import cloudinary
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_photo = CloudinaryField('image', default='media/default.jpg')
+    profile_photo = CloudinaryField('image', default='media/default.png')
     bio = models.CharField(blank=True,default='I am a new user!', max_length = 200)
     name = models.CharField(blank=True, max_length=120)
     updated_at = models.DateTimeField(auto_now=True)
@@ -83,10 +83,7 @@ class Project(models.Model):
     def search_by_name(cls, search_term):
         got_projects = Project.objects.filter(sitename__icontains=search_term)
         return got_projects
-    # @classmethod
-    # def search_by_projects(cls,search_term):
-    #     projects = cls.objects.filter(title__icontains=search_term)
-    #     return projects 
+  
 
 class Rating(models.Model):
     RATINGS = (
