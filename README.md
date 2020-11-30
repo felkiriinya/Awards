@@ -5,13 +5,14 @@
 ## Description
 
 ![landing](./static/images/landing.png)
+![rating](./static/images/rating.png)
 
 
 ## Live link
 Visit the application on https://fel-awards.herokuapp.com/.
 
 ## Figma Link
-This is the [figma]() link to my design.
+This is the [figma](https://www.figma.com/file/rfJq82UvKCokjbBvQSkcPB/Awards?node-id=0%3A1) link to my design.
 
 ## Development
 To make advancements/modifications, follow these steps:
