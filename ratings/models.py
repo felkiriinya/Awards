@@ -13,7 +13,7 @@ import cloudinary
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_photo = CloudinaryField('image', default='media/default.png')
+    profile_photo = CloudinaryField('image')
     bio = models.CharField(blank=True,default='I am a new user!', max_length = 200)
     name = models.CharField(blank=True, max_length=120)
     updated_at = models.DateTimeField(auto_now=True)
